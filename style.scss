@@ -1,0 +1,218 @@
+/*  Google Font CDN  */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@mixin fontAdd() {
+  font-family: 'Poppins', sans-serif;
+}
+
+$mobile: 'only screen and (max-width:768px)';
+
+* {
+  box-sizing: border-box;
+  @include fontAdd();
+  background-size: cover;
+}
+
+body {
+  overflow: hidden !important;
+  background-color: rgb(218, 218, 218);
+
+  @media #{$mobile} {
+    width: 100%;
+    height: 100vh;
+  }
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 18px;
+  background-color: #000;
+  color: #fff;
+  transition: all 0.5s ease-in-out;
+
+  span {
+    display: inline-block;
+    animation: upDown .8s linear infinite;
+  }
+
+  &:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+
+  &.dimed {
+    display: none;
+  }
+
+  @media #{$mobile} {
+    font-size: 16px;
+    padding: 8px;
+    width: 70%;
+    max-width: 300px;
+  }
+}
+
+@keyframes upDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10%);
+  }
+
+  0% {
+    transform: translateY(0);
+  }
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-style: preserve-3d;
+  perspective: 800px;
+  visibility: hidden;
+  opacity: 0;
+
+  @media #{$mobile} {
+    width: 100%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;;
+  }
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .front {
+    position: relative;
+    width: 400px;
+    height: 250px;
+    background-color: rgb(0, 0, 66);
+    // transform: rotate(-10deg);
+    transform-origin: bottom center;
+    transform-style: preserve-3d;
+    perspective: 800px;
+    border-radius: 10px 10px 0 0;
+
+    h1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 200px;
+      background: url('images/text_02.png') center top / 77% no-repeat;
+      transform: translate3d(0, 20%, 0);
+    }
+
+    .gift_01 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 120px;
+      background: url('images/gift.png') center top / 90% no-repeat;
+      transform: translate3d(-25px, 25px, 57px);
+    }
+
+    .snow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 230px;
+      background: url('images/snow.png') center bottom / 90% no-repeat;
+      transform: translate3d(0, 0, 35px);
+    }
+
+    .snowman {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 10;
+      width: 100px;
+      height: 150px;
+      background: url('images/snowman.png') center top / 90% no-repeat;
+      transform: translate3d(285px, 67%, 110px) rotate(30deg);
+    }
+
+    .tree {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 10;
+      width: 180px;
+      height: 200px;
+      background: url('images/tree.png') center top / 40% no-repeat;
+      transform: translate3d(20px, 150px, 54px) rotate(-35deg);
+    }
+
+    .pearls_01 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      background: url('images/pearls.png') center top / 100% no-repeat;
+      transform: translate3d(44px, 178px, 22px) rotate(25deg);
+    }
+
+    .pearls_02 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      background: url('images/pearls.png') center top / 100% no-repeat;
+      transform: translate3d(284px, 48px, 18px) rotate(-25deg);
+    }
+
+  }
+
+  .back {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    background: linear-gradient(180deg, #d8d8d8, #fff);
+    border-radius: 0 0 10px 10px;
+    transform: rotateX(70deg);
+    transform-origin: top center;
+    transform-style: preserve-3d;
+    perspective: 800px;
+
+    h3 {
+      position: absolute;
+      right: 20px;
+      bottom: 40px;
+      font-size: 12px;
+      text-align: right;
+      transform-origin: bottom;
+      transform: translate3d(-20px, 0, 2px);
+      font-weight: 600;
+    }
+
+    .msg {
+      position: absolute;
+      top: 50px;
+      left: 0;
+      width: 100%;
+      font-size: 16px;
+      font-weight: 700;
+      text-align: center;
+      transform-origin: bottom;
+      transform: translate3d(0px, 0px, 2px);
+    }
+  }
+}
