@@ -4,7 +4,8 @@ On mobile, it moves according to the tilt of the phone. <br />
 There was an issue that it didn't work on iPhone, 
 so when you press the first button that appears, <br />
 you can distinguish between PC / MOBILE. <br />
-And if it's mobile, you can distinguish between IOS and Android environment within it.
+And if it's mobile, you can distinguish between IOS and Android environment within it. <br />
+This way, it works on any mobile device.
 
 #### ✔️ Things to remember
 ```
